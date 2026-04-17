@@ -219,7 +219,7 @@ app.layout = html.Div(
                     }
                 ),
                 html.H1(
-                    "Dashboard de películas",
+                    "Inside the Movie Industry",
                     style={
                         "marginBottom": "6px",
                         "fontSize": "42px",
