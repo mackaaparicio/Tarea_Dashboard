@@ -115,7 +115,7 @@ def style_fig(fig, title, height=330):
     fig.update_yaxes(gridcolor="rgba(31,42,68,0.08)")
     return fig
 
-def card(title, value):
+def card(title, value, icon=""):
     return html.Div(
         style={
             "background": CARD_BG,
@@ -127,7 +127,19 @@ def card(title, value):
         },
         children=[
             html.Div(title, style={"fontSize": "14px", "color": "#55627a"}),
-            html.Div(value, style={"fontSize": "30px", "fontWeight": "700", "color": TEXT, "marginTop": "6px"})
+
+            html.Div(
+                children=[
+                    html.Span(icon, style={"marginRight": "8px", "fontSize": "26px"}),
+                    html.Span(value)
+                ],
+                style={
+                    "fontSize": "30px",
+                    "fontWeight": "700",
+                    "color": TEXT,
+                    "marginTop": "6px"
+                }
+            )
         ]
     )
 
@@ -439,10 +451,10 @@ def update_dashboard(selected_genres, selected_languages, year_range):
     avg_revenue = dff.loc[dff["revenue"] > 0, "revenue"].mean() if "revenue" in dff.columns else np.nan
 
     kpis = [
-        card("N° Películas", f"{total_movies:,}"),
-        card("Rating promedio", f"{avg_vote:.2f}" if pd.notnull(avg_vote) else "N/A"),
-        card("Presupuesto promedio", f"${avg_budget:,.0f}" if pd.notnull(avg_budget) else "N/A"),
-        card("Ganancias promedio", f"${avg_revenue:,.0f}" if pd.notnull(avg_revenue) else "N/A"),
+        card("Total Películas", f"{total_movies:,}", "🎬"),
+        card("Rating Promedio", f"{avg_vote:.2f}" if pd.notnull(avg_vote) else "N/A", "⭐"),
+        card("Presupuesto Promedio", f"${avg_budget:,.0f}" if pd.notnull(avg_budget) else "N/A", "💰"),
+        card("Ganancias Promedio", f"${avg_revenue:,.0f}" if pd.notnull(avg_revenue) else "N/A", "📈"),
     ]
 
     # 1. Budget vs rating
