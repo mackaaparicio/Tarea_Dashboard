@@ -4,6 +4,13 @@ Desarrollo trabajo final para Visualización de datos.
 Integrantes: Mackarena Aparicio Aravena y Eduardo Soliz Paillahueque
 
 
+### Archivos a considerar para el análisis y construcción del Dashboard: 
+
+1. Tarea_dash.ipynb: corresponde al notebook que tiene el proceso de ETL con la unión y limpieza de las BBDD extraídas desde MovieLens y Kaggle.
+2. app.py: archivo donde se programa y ejecuta el dashboard
+3. movies_final.csv: corresponde al conjunto de datos final y consolidado, resultado de un proceso de ETL. Este archivo constituye el motor de información del Dashboard.
+
+
 ### Objetivo:
 
 Optimizar la toma de decisiones estratégicas en la industria cinematográfica mediante una herramienta analítica interactiva que permita identificar patrones de rentabilidad y percepción de la audiencia en el mercado global de películas entre 1950 y 2017.
